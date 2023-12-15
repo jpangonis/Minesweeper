@@ -155,7 +155,7 @@ function showBoard() {
             if (board[i][j].isRevealed) {
                 if (board[i][j].isMine) {
                     const bombImage = document.createElement("img");
-                    bombImage.src = "bomb.png";
+                    bombImage.src = "pictures/bomb.png";
                     cell.appendChild(bombImage);
                     
                     bombImage.style.width = "100%"; // Adjust as needed
@@ -176,7 +176,7 @@ function showBoard() {
             if(board[i][j].isFlagged){
                 UserFoundMines +=1;
                 const flagImage = document.createElement("img");
-                flagImage.src = "flag.png";
+                flagImage.src = "pictures/flag.png";
                 cell.appendChild(flagImage);
                 
                 flagImage.style.width = "100%"; // Adjust as needed

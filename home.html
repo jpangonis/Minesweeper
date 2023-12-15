@@ -7,13 +7,26 @@
     <title>Minesweeper Game</title>
 </head>
 <link rel="stylesheet" href="./Styles.css">
- 
+    
+
 <body>
     <h1>Minesweeper</h1>
-    <div id = "UserMineCount"></div>
-    <div id="gameBoard"></div>
-    <button id="restartButton">Restart Game</button> 
+    <div id="gameContainer">
+        <div id = "controlsContainer">
+            <div id="mineCountContainer">
+                <div id="UserMineCount"></div>
+            </div>
+            <button id="restartButton">
+                <img src="pictures/smiley_face.png" alt="Button Image">
+            </button>
+            <div id = "timerContainer">
+                <div id="timer">0</div>
+            </div>
+        </div>
+        <div id="gameBoard"></div>
+    </div>
 </body>
+
 <script src="./Minesweeper.js"></script>
  
 </html>

@@ -1,13 +1,58 @@
-
 /* Styles.css */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
-.board {
+
+#gameContainer {
+    border: 10px solid #9c9797;
     display: inline-block;
-    margin: 20px;
+    padding: 0px;
+    text-align: center;
+    margin: 0px;
+    width: 252px;
 }
+
+#controlsContainer {
+    border-bottom: 10px solid #9c9797; /* Add a bottom border */
+    display: flex;
+    flex-direction: row; /* Arrange children horizontally */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+
+#mineCountContainer {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-top: 10px;
+    border: 2px solid #9c9797;
+    padding: 1px;
+    max-width: 80px
+}
+
+#restartButton {
+    margin-top: 0px;
+    padding: 0px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#timerContainer {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-top: 10px;
+    border: 2px solid #9c9797;
+    padding: 1px;
+    max-width: 80px
+}
+
+.board-container {
+    display: inline-block;
+}
+
 .cell {
     width: 30px;
     height: 30px;
@@ -17,34 +62,39 @@ body {
     vertical-align: middle;
     font-size: 20px;
     cursor: pointer;
- 
-    /* Default color for unrevealed tiles */
     background-color: #eee;
- 
-    /* Default color for unrevealed tile text */
     color: #333;
 }
+
 .revealed {
-    /* Color for revealed tiles */
     background-color: #ccc;
- 
-    /* Color for revealed tile text */
     color: #000;
 }
+
 .mine {
-    /* Color for mines */
     background-color: #ff3333;
 }
+
 .count {
     background-color: #cac6c6;
 }
+
 .UserMineCount {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 100px; /* Adjust padding as needed */
-    background-color: #090909;
-    font-size: 18px;
-    color: #0a0a0a;
-    border: 1px solid #101010;
+    flex: 1px;
+}
+
+button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Style the image to fill the button */
+button img {
+    width: 20%;
+    height: 20%;
+    object-fit: cover; /* Adjust as needed */
 }

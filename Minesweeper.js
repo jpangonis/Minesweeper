@@ -2,6 +2,9 @@ const numRows = 8;
 const numCols = 8;
 const numMines = 10;
 let gameLost = false;
+let elapsedTime = 0;
+
+let timerInterval;
 
 const gameBoard = document.getElementById("gameBoard");
 userMineCount = document.getElementById("UserMineCount");
@@ -9,6 +12,7 @@ document.getElementById("restartButton").addEventListener("click", restartGame);
 let board = [];
 
 function initializeBoard() {
+    elapsedTime = 0;
     for (let i = 0; i < numRows; i++) {
         board[i] = [];
         for (let j = 0; j < numCols; j++) {
@@ -31,7 +35,6 @@ function initializeBoard() {
 
         if (!board[row][col].isMine) {
             board[row][col].isMine = true;
-            console.log(row, col);
             minesPlaced++;
         }
         
@@ -42,7 +45,18 @@ function initializeBoard() {
             board[i][j].mineCount = countNeighborMines(i,j);
         }
     }
+    timerInterval = setInterval(updateTimer, 1000); // Update every second
 
+}
+
+function updateTimer() {
+    elapsedTime++;
+    // Assuming you have an element with id "timer" to display the timer
+    document.getElementById("timer").textContent = "Time: " + elapsedTime + " seconds";
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
 }
 
 
@@ -154,6 +168,7 @@ function showBoard() {
 
             if (board[i][j].isRevealed) {
                 if (board[i][j].isMine) {
+                    stopTimer();
                     const bombImage = document.createElement("img");
                     bombImage.src = "pictures/bomb.png";
                     cell.appendChild(bombImage);
@@ -209,11 +224,16 @@ function showBoard() {
 }
 
 function restartGame() {
-    gameLost = false;  // Reset game state
-    UserFoundMines = numMines;  // Reset found mines count
-    initializeBoard();  // Re-initialize the game board
-    showBoard();  // Show the newly initialized board
+    gameLost = false;
+    UserFoundMines = numMines;
+    elapsedTime = 0; // Reset elapsed time
+    stopTimer(); // Stop the timer from the previous game
+    initializeBoard();
+    showBoard();
+    // Start the timer again
+    //timerInterval = setInterval(updateTimer, 1000);
 }
+
 
 function winCondition(){
     let countMines = 0;
@@ -225,9 +245,11 @@ function winCondition(){
         }
     }
     if (countMines === numMines){
+        stopTimer();
         alert("you win!");
     }
 }
 
+//restartGame();
 initializeBoard();
 showBoard();

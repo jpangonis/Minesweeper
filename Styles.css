@@ -35,3 +35,16 @@ body {
     /* Color for mines */
     background-color: #ff3333;
 }
+.count {
+    background-color: #564d4d;
+}
+.UserMineCount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 100px; /* Adjust padding as needed */
+    background-color: #090909;
+    font-size: 18px;
+    color: #0a0a0a;
+    border: 1px solid #101010;
+}

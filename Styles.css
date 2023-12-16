@@ -14,45 +14,76 @@ body {
 }
 
 #controlsContainer {
-    border-bottom: 10px solid #9c9797; /* Add a bottom border */
+    border-bottom: 10px solid #9c9797;
     display: flex;
-    flex-direction: row; /* Arrange children horizontally */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
     text-align: center;
     margin: 0px;
 }
 
+#mineCountContainer,
+#restartButton,
+#timerContainer {
+    flex: 1; /* Distribute available space equally among child containers */
+    margin: 0 0px; /* Add margin between containers if needed */
+}
 
 #mineCountContainer {
+    height: 35px;
+}
+#count1,
+#count2,
+#count3 {
+    flex: 1;
+    height: 100%; /* Make the text fill the entire height of the container */
+    width: 100%; /* Set the height as needed */
+    margin-right: 0px; /* Adjust the margin between boxes */
     display: flex;
-    align-items: center; /* Align items vertically */
-    margin-top: 10px;
-    border: 2px solid #9c9797;
-    padding: 1px;
-    max-width: 80px
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color: #000;
+    color: #fa0606;
+}
+#restartButton,
+#timerContainer,
+#mineCountContainer {
+    display: flex;
+    align-items: center;
+    max-width: 80px;
 }
 
 #restartButton {
-    margin-top: 0px;
-    padding: 0px;
     font-size: 16px;
     cursor: pointer;
-}
-#timerContainer {
+    max-height: 30px; /* Set a reasonable height */
     display: flex;
-    align-items: center; /* Align items vertically */
-    margin-top: 10px;
-    border: 2px solid #9c9797;
-    padding: 1px;
-    max-width: 80px
+    align-items: center; /* Align content vertically */
+    justify-content: center; /* Center content horizontally */
 }
-
+/* Add additional styling as needed */
+#timerContainer{
+    height: 35px;
+}
+#timer1,
+#timer2,
+#timer3 {
+    flex: 1;
+    height: 100%; /* Make the text fill the entire height of the container */
+    width: 100%; /* Set the height as needed */
+    margin-right: 0px; /* Adjust the margin between boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color: #000;
+    color: #fa0606;
+}
 .board-container {
     display: inline-block;
 }
-
 .cell {
     width: 30px;
     height: 30px;
@@ -94,7 +125,7 @@ button {
 
 /* Style the image to fill the button */
 button img {
-    width: 20%;
-    height: 20%;
+    width: 50%;
+    height: 50%;
     object-fit: cover; /* Adjust as needed */
 }

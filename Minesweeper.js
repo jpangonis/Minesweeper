@@ -7,7 +7,9 @@ let elapsedTime = 0;
 let timerInterval;
 
 const gameBoard = document.getElementById("gameBoard");
-userMineCount = document.getElementById("UserMineCount");
+userMineCount1 = document.getElementById("count1");
+userMineCount2 = document.getElementById("count2");
+userMineCount3 = document.getElementById("count3");
 document.getElementById("restartButton").addEventListener("click", restartGame);
 let board = [];
 
@@ -51,8 +53,18 @@ function initializeBoard() {
 
 function updateTimer() {
     elapsedTime++;
-    // Assuming you have an element with id "timer" to display the timer
-    document.getElementById("timer").textContent = "Time: " + elapsedTime + " seconds";
+    time1 = elapsedTime%10;
+    time2 = Math.floor(elapsedTime/10);
+    time3 = Math.floor(elapsedTime/100);
+    if(elapsedTime > 99){
+        time2 = time2%10;
+    }
+    if(elapsedTime >999){
+        stopTimer();
+    }
+    document.getElementById("timer1").textContent = time1;
+    document.getElementById("timer2").textContent = time2;
+    document.getElementById("timer3").textContent = time3;
 }
 
 function stopTimer() {
@@ -220,7 +232,9 @@ function showBoard() {
 
         gameBoard.appendChild(document.createElement("br"));
     }
-    userMineCount.textContent = "Mines left: " + (numMines-UserFoundMines);
+    userMineCount1.textContent = (numMines-UserFoundMines)%10;
+    userMineCount2.textContent = Math.floor((numMines-UserFoundMines)/10);
+    userMineCount3.textContent = 0;
 }
 
 function restartGame() {
@@ -230,8 +244,6 @@ function restartGame() {
     stopTimer(); // Stop the timer from the previous game
     initializeBoard();
     showBoard();
-    // Start the timer again
-    //timerInterval = setInterval(updateTimer, 1000);
 }
 
 
@@ -246,10 +258,9 @@ function winCondition(){
     }
     if (countMines === numMines){
         stopTimer();
-        alert("you win!");
+        alert("you win!");  
     }
 }
 
-//restartGame();
 initializeBoard();
 showBoard();

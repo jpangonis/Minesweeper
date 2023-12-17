@@ -4,14 +4,6 @@ body {
     text-align: center;
 }
 
-#gameContainer {
-    border: 10px solid #9c9797;
-    display: inline-block;
-    padding: 0px;
-    text-align: center;
-    margin: 0px;
-    width: 252px;
-}
 
 #controlsContainer {
     border-bottom: 10px solid #9c9797;
@@ -128,4 +120,7 @@ button img {
     width: 50%;
     height: 50%;
     object-fit: cover; /* Adjust as needed */
+}
+#beginner{
+    background-color: #fa0606;
 }

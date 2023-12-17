@@ -1,36 +1,61 @@
-
 <!-- Index.html -->
 <!DOCTYPE html>
 <html>
- 
+
 <head>
     <title>Minesweeper Game</title>
+    <link rel="stylesheet" href="./styles/Styles.css">
+    <link id="beginner-stylesheet" rel="stylesheet" href="./styles/beginner.css" disabled>
+    <link id="intermediate-stylesheet" rel="stylesheet" href="./styles/intermediate.css" disabled>
+    <link id="expert-stylesheet" rel="stylesheet" href="./styles/expert.css" disabled>
+    <script>
+        // Define the function in the global scope
+        function changeDifficulty(difficulty) {
+            // Disable all difficulty stylesheets
+            document.getElementById("beginner-stylesheet").disabled = true;
+            document.getElementById("intermediate-stylesheet").disabled = true;
+            document.getElementById("expert-stylesheet").disabled = true;
+
+            // Enable the stylesheet corresponding to the selected difficulty
+            document.getElementById(`${difficulty}-stylesheet`).disabled = false;
+        }
+
+        // Wrap the event listener around the function calls
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add any other code that needs to run after the DOM is fully loaded here.
+        });
+    </script>
 </head>
-<link rel="stylesheet" href="./Styles.css">
-    
 
 <body>
     <h1>Minesweeper</h1>
     <div id="gameContainer">
-        <div id = "controlsContainer">
+        <div id="controlsContainer">
             <div id="mineCountContainer">
-                <div id = "count3"></div>
-                <div id = "count2"></div>
-                <div id = "count1"></div>
+                <div id="count3"></div>
+                <div id="count2"></div>
+                <div id="count1"></div>
             </div>
             <button id="restartButton">
                 <img src="pictures/smiley_face.png" alt="Button Image">
             </button>
-            <div id = "timerContainer">
-                <div id = "timer3"></div>
-                <div id = "timer2"></div>
-                <div id = "timer1"></div>
+            <div id="timerContainer">
+                <div id="timer3"></div>
+                <div id="timer2"></div>
+                <div id="timer1"></div>
             </div>
         </div>
         <div id="gameBoard"></div>
     </div>
+    <button id="beginner" class="difficulty-button" onclick="changeDifficulty('beginner')">beginner</button>
+    <button id="intermediate" class="difficulty-button" onclick="changeDifficulty('intermediate')">intermediate</button>
+    <button id="expert" class="difficulty-button" onclick="changeDifficulty('expert')">expert</button>
+
+    <script src="game/class.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="game/beginner.js" defer></script>
+    <script src="game/intermediate.js" defer></script>
+    <script src="game/expert.js" defer></script>
 </body>
 
-<script src="./Minesweeper.js"></script>
- 
 </html>

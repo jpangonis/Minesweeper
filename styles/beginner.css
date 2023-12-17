@@ -1,0 +1,136 @@
+/* Styles.css */
+#beginner-stylesheet{
+    
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#gameContainer {
+    border: 10px solid #9c9797;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    margin: 0px;
+    width: 282px;
+}
+#controlsContainer {
+    border-bottom: 10px solid #9c9797;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+#mineCountContainer,
+#restartButton,
+#timerContainer {
+    flex: 1; /* Distribute available space equally among child containers */
+    margin: 0 0px; /* Add margin between containers if needed */
+}
+
+#mineCountContainer {
+    height: 35px;
+}
+#count1,
+#count2,
+#count3 {
+    flex: 1;
+    height: 100%; /* Make the text fill the entire height of the container */
+    width: 100%; /* Set the height as needed */
+    margin-right: 0px; /* Adjust the margin between boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color: #000;
+    color: #fa0606;
+}
+#restartButton,
+#timerContainer,
+#mineCountContainer {
+    display: flex;
+    align-items: center;
+    max-width: 80px;
+}
+
+#restartButton {
+    font-size: 16px;
+    cursor: pointer;
+    max-height: 30px; /* Set a reasonable height */
+    display: flex;
+    align-items: center; /* Align content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+/* Add additional styling as needed */
+#timerContainer{
+    height: 35px;
+}
+#timer1,
+#timer2,
+#timer3 {
+    flex: 1;
+    height: 100%; /* Make the text fill the entire height of the container */
+    width: 100%; /* Set the height as needed */
+    margin-right: 0px; /* Adjust the margin between boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color: #000;
+    color: #fa0606;
+}
+.board-container {
+    display: inline-block;
+}
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #eee;
+    color: #333;
+}
+
+.revealed {
+    background-color: #ccc;
+    color: #000;
+}
+
+.mine {
+    background-color: #ff3333;
+}
+
+.count {
+    background-color: #cac6c6;
+}
+
+.UserMineCount {
+    flex: 1px;
+}
+
+button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Style the image to fill the button */
+button img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover; /* Adjust as needed */
+}
+#beginner{
+    background-color: #fa0606;
+}

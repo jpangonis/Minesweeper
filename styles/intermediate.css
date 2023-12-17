@@ -131,6 +131,27 @@ button img {
     height: 50%;
     object-fit: cover; /* Adjust as needed */
 }
-#beginner{
-    background-color: #fa0606;
+.count-1 {
+    color: blue; /* Change the color as needed */
+}
+.count-2 {
+    color: green; /* Change the color as needed */
+}
+.count-3 {
+    color:red;
+}
+.count-4{
+    color:navy;
+}
+.count-5{
+    color:darkred;
+}
+.count-6{
+    color: rgb(78, 209, 224);
+}
+.count-7{
+    color:mediumorchid;
+}
+.count-8{
+    color:grey;
 }

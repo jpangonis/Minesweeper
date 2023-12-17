@@ -189,6 +189,7 @@ class MinesweeperBase {
                     } else {
                         const mineCount = this.board[i][j].mineCount;
                         cell.textContent = mineCount;
+                        cell.classList.add(`count-${mineCount}`);
                     }
                 }
     

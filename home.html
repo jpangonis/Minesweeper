@@ -9,6 +9,9 @@
     <link id="intermediate-stylesheet" rel="stylesheet" href="./styles/intermediate.css" disabled>
     <link id="expert-stylesheet" rel="stylesheet" href="./styles/expert.css" disabled>
     <script>
+    // Declare the variable to track mouse click state
+        let mouseIsClicked = false;
+
         // Define the function in the global scope
         function changeDifficulty(difficulty) {
             // Disable all difficulty stylesheets
@@ -22,9 +25,23 @@
             document.getElementById("difficultyText").textContent = difficulty;
         }
 
+        function showPicture() {
+            // Update the mouseIsClicked variable
+            mouseIsClicked = true;
+            document.getElementById("restartButton").innerHTML = '<img src="pictures/open_mouth.png" alt="Sad Face">';
+        }
+
+        // Hide the picture when the mouse is released
+        function hidePicture() {
+            // Update the mouseIsClicked variable
+            mouseIsClicked = false;
+            document.getElementById("restartButton").innerHTML = '<img src="pictures/smiley_face.png" alt="Smiley Face">';
+        }
+
         // Wrap the event listener around the function calls
         document.addEventListener('DOMContentLoaded', function () {
-            // Add any other code that needs to run after the DOM is fully loaded here.
+            document.addEventListener('mousedown', showPicture);
+            document.addEventListener('mouseup', hidePicture);
         });
     </script>
 </head>

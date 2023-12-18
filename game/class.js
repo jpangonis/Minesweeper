@@ -7,6 +7,7 @@ class MinesweeperBase {
       this.elapsedTime = 0;
       this.timerInterval = null;
       this.board = [];
+      this.mouseIsClicked = false;
   
       this.gameBoard = document.getElementById("gameBoard");
       this.userMineCount1 = document.getElementById("count1");
@@ -153,7 +154,6 @@ class MinesweeperBase {
         }
         this.showBoard();
     }
-    
     
     showBoard() {
         this.gameBoard.innerHTML = "";

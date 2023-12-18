@@ -20,6 +20,8 @@ class MinesweeperBase {
       this.elapsedTime = 0;
       this.gameLost = false;
       this.board = [];
+
+      document.getElementById("restartButton").innerHTML = '<img src="pictures/smiley_face.png" alt="Smiley Face">';
   
       for (let i = 0; i < this.numRows; i++) {
         this.board[i] = [];
@@ -211,6 +213,9 @@ class MinesweeperBase {
                         this.board[i][j].isFlagged = false;
                         this.showBoard();
                     });
+                }
+                if (this.gameLost) {
+                    document.getElementById("restartButton").innerHTML = '<img src="pictures/sad_face.png" alt="Sad Face">';
                 }
     
                 this.gameBoard.appendChild(cell);

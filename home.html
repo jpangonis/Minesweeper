@@ -18,6 +18,8 @@
 
             // Enable the stylesheet corresponding to the selected difficulty
             document.getElementById(`${difficulty}-stylesheet`).disabled = false;
+
+            document.getElementById("difficultyText").textContent = difficulty;
         }
 
         // Wrap the event listener around the function calls
@@ -29,28 +31,40 @@
 
 <body>
     <h1>Minesweeper</h1>
-    <div id="gameContainer">
-        <div id="controlsContainer">
-            <div id="mineCountContainer">
-                <div id="count3"></div>
-                <div id="count2"></div>
-                <div id="count1"></div>
-            </div>
-            <button id="restartButton">
-                <img src="pictures/smiley_face.png" alt="Button Image">
-            </button>
-            <div id="timerContainer">
-                <div id="timer3"></div>
-                <div id="timer2"></div>
-                <div id="timer1"></div>
+    <div id = "gameAndDifficulty">
+        <div class="dropdown">
+            <!-- Define the dropdown button -->
+            <button class="dropbtn">Select Difficulty</button>
+            <!-- Define the dropdown content -->
+            <div class="dropdown-content">
+                <!-- Define the dropdown links (buttons) -->
+                <button id="beginner" class="difficulty-button" onclick="changeDifficulty('beginner')">beginner</button>
+                <button id="intermediate" class="difficulty-button" onclick="changeDifficulty('intermediate')">intermediate</button>
+                <button id="expert" class="difficulty-button" onclick="changeDifficulty('expert')">expert</button>
             </div>
         </div>
-        <div id="gameBoard"></div>
+        <div id="gameContainer">
+            <div id="controlsContainer">
+                <div id="mineCountContainer">
+                    <div id="count3"></div>
+                    <div id="count2"></div>
+                    <div id="count1"></div>
+                </div>
+                <button id="restartButton">
+                    <img src="pictures/smiley_face.png" alt="Button Image">
+                </button>
+                <div id="timerContainer">
+                    <div id="timer3"></div>
+                    <div id="timer2"></div>
+                    <div id="timer1"></div>
+                </div>
+            </div>
+            <div id="gameBoard"></div>
+        </div>
+        <div id="difficultyTextContainer">
+            <p>Difficulty: <span id="difficultyText">Select a difficulty</span></p>
+        </div>
     </div>
-    <button id="beginner" class="difficulty-button" onclick="changeDifficulty('beginner')">beginner</button>
-    <button id="intermediate" class="difficulty-button" onclick="changeDifficulty('intermediate')">intermediate</button>
-    <button id="expert" class="difficulty-button" onclick="changeDifficulty('expert')">expert</button>
-
     <script src="game/class.js" defer></script>
     <script src="main.js" defer></script>
     <script src="game/beginner.js" defer></script>

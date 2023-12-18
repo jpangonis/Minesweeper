@@ -3,7 +3,10 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
-
+#gameAndDifficulty {
+    display: flex;
+    flex-direction: column; /* Reverse the order of the divs */
+}
 
 #controlsContainer {
     border-bottom: 10px solid #9c9797;
@@ -73,35 +76,6 @@ body {
     background-color: #000;
     color: #fa0606;
 }
-.board-container {
-    display: inline-block;
-}
-.cell {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #eee;
-    color: #333;
-}
-
-.revealed {
-    background-color: #ccc;
-    color: #000;
-}
-
-.mine {
-    background-color: #ff3333;
-}
-
-.count {
-    background-color: #cac6c6;
-}
-
 .UserMineCount {
     flex: 1px;
 }
@@ -121,6 +95,50 @@ button img {
     height: 50%;
     object-fit: cover; /* Adjust as needed */
 }
-#beginner{
-    background-color: #fa0606;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px; /* Add margin between the dropdown and the game container */
 }
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    text-align: center;
+    box-shadow: 0px 8px 16px 0px rgba(78, 66, 66, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    left: 0; /* Align the left edge of the content with the left edge of the button */
+}
+
+
+/* Style the dropdown button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#gameContainer {
+    border: 10px solid #9c9797;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    margin: auto; /* Set margin to auto to center horizontally */
+    width: 282px;
+    margin-top: 20px; /* Add a margin-top for vertical centering */
+}
+/* Change color on hover */
+.dropdown-content button:hover {background-color: #868181}
+
+/* Show the dropdown content when the button is clicked */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+

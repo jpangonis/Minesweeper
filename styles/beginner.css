@@ -1,18 +1,10 @@
 /* Styles.css */
-#beginner-stylesheet{
-    
-}
 body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
 #gameContainer {
-    border: 10px solid #9c9797;
-    display: inline-block;
-    padding: 0px;
-    text-align: center;
-    margin: 0px;
     width: 282px;
 }
 #controlsContainer {
@@ -156,3 +148,4 @@ button img {
 .count-8{
     color:grey;
 }
+

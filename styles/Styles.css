@@ -5,7 +5,7 @@ body {
 }
 #gameAndDifficulty {
     display: flex;
-    flex-direction: column; /* Reverse the order of the divs */
+    flex-direction: column; 
 }
 
 #controlsContainer {
@@ -21,8 +21,8 @@ body {
 #mineCountContainer,
 #restartButton,
 #timerContainer {
-    flex: 1; /* Distribute available space equally among child containers */
-    margin: 0 0px; /* Add margin between containers if needed */
+    flex: 1; 
+    margin: 0 0px; 
 }
 
 #mineCountContainer {
@@ -32,9 +32,9 @@ body {
 #count2,
 #count3 {
     flex: 1;
-    height: 100%; /* Make the text fill the entire height of the container */
-    width: 100%; /* Set the height as needed */
-    margin-right: 0px; /* Adjust the margin between boxes */
+    height: 100%; 
+    width: 100%; 
+    margin-right: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,12 +53,12 @@ body {
 #restartButton {
     font-size: 16px;
     cursor: pointer;
-    max-height: 30px; /* Set a reasonable height */
+    max-height: 30px; 
     display: flex;
-    align-items: center; /* Align content vertically */
-    justify-content: center; /* Center content horizontally */
+    align-items: center; 
+    justify-content: center; 
 }
-/* Add additional styling as needed */
+
 #timerContainer{
     height: 35px;
 }
@@ -66,9 +66,9 @@ body {
 #timer2,
 #timer3 {
     flex: 1;
-    height: 100%; /* Make the text fill the entire height of the container */
-    width: 100%; /* Set the height as needed */
-    margin-right: 0px; /* Adjust the margin between boxes */
+    height: 100%; 
+    width: 100%; 
+    margin-right: 0px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,13 +93,13 @@ button {
 button img {
     width: 50%;
     height: 50%;
-    object-fit: cover; /* Adjust as needed */
+    object-fit: cover; 
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-bottom: 10px; /* Add margin between the dropdown and the game container */
+    margin-bottom: 10px; 
 }
 
 .dropdown-content {
@@ -111,7 +111,7 @@ button img {
     box-shadow: 0px 8px 16px 0px rgba(78, 66, 66, 0.2);
     padding: 12px 16px;
     z-index: 1;
-    left: 0; /* Align the left edge of the content with the left edge of the button */
+    left: 0; 
 }
 
 

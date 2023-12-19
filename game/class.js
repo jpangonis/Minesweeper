@@ -4,6 +4,7 @@ class MinesweeperBase {
       this.numCols = numCols;
       this.numMines = numMines;
       this.gameLost = false;
+      this.gameWon = false;
       this.elapsedTime = 0;
       this.timerInterval = null;
       this.board = [];
@@ -16,10 +17,13 @@ class MinesweeperBase {
   
       document.getElementById("restartButton").addEventListener("click", () => this.restartGame());
     }
-  
+    
+    //initializes board with random mines and the number of mines surrounding the cell
+    //hides the values underneath a grey square
     initializeBoard() {
       this.elapsedTime = 0;
       this.gameLost = false;
+      this.gameWon = false;
       this.board = [];
 
       document.getElementById("restartButton").innerHTML = '<img src="pictures/smiley_face.png" alt="Smiley Face">';
@@ -54,7 +58,16 @@ class MinesweeperBase {
   
       this.timerInterval = setInterval(() => this.updateTimer(), 1000);
     }
-  
+    //checks for the changing of the face
+    getGameLost() {
+        return this.gameLost;
+    }
+    //checks for the changing of the face
+    getGameWon() {
+        return this.gameWon;
+    }
+    //updates the timer by 1 for each second
+    //parses into digits
     updateTimer() {
         this.elapsedTime++;
         this.time1 = this.elapsedTime%10;
@@ -75,7 +88,7 @@ class MinesweeperBase {
         clearInterval(this.timerInterval);
     }
     
-    
+    //counts the number of mines around a specific cell
     countNeighborMines(row, col) {
         let count = 0;
     
@@ -108,7 +121,8 @@ class MinesweeperBase {
         return count;
     }
     
-    
+    //reveals the cell that is clicked
+    //reveals multiple cells if there is no mine around the cell that is clicked
     clickCell(row, col){
         if (this.gameLost) {
             // Game is already lost, do nothing
@@ -155,6 +169,9 @@ class MinesweeperBase {
         this.showBoard();
     }
     
+    //organizes each cell into a div
+    //determines if a mine should be flagged, revealed, etc
+    //goes to win/lost condition
     showBoard() {
         this.gameBoard.innerHTML = "";
         this.UserFoundMines = 0;
@@ -229,6 +246,7 @@ class MinesweeperBase {
         this.userMineCount3.textContent = 0;
     }    
     
+    //resets each of the variables for the game restart
     restartGame() {
         this.gameLost = false;
         this.UserFoundMines = this.numMines;
@@ -238,9 +256,18 @@ class MinesweeperBase {
         this.showBoard();
     }
     
-    
+    //from the library, triggers the api
+    triggerConfetti() {
+        confetti({
+            particleCount: 150,
+            spread: 180,
+            origin: { y: 0.6 },
+        });
+    }
+    //changes face and reveals confetti if won
     winCondition(){
         let countMines = 0;
+        this.gameWon = true;
         for(let i = 0; i < this.numRows; i++){
             for(let j = 0; j<this.numCols; j++){
                 if (this.board[i][j].isMine && this.board[i][j].isFlagged){
@@ -250,10 +277,12 @@ class MinesweeperBase {
         }
         if (countMines === this.numMines){
             this.stopTimer();
-            alert("you win!");  
+            this.triggerConfetti();
+            document.getElementById("restartButton").innerHTML = '<img src="pictures/sunglasses_face.png" alt="Sunglasses Face">';
         }
     }
 
+    //for only having one variable at a time
     cleanup() {
         this.stopTimer();
     }

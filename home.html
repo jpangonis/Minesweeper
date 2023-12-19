@@ -8,42 +8,21 @@
     <link id="beginner-stylesheet" rel="stylesheet" href="./styles/beginner.css" disabled>
     <link id="intermediate-stylesheet" rel="stylesheet" href="./styles/intermediate.css" disabled>
     <link id="expert-stylesheet" rel="stylesheet" href="./styles/expert.css" disabled>
-    <script>
-    // Declare the variable to track mouse click state
-        let mouseIsClicked = false;
-
-        // Define the function in the global scope
-        function changeDifficulty(difficulty) {
-            // Disable all difficulty stylesheets
-            document.getElementById("beginner-stylesheet").disabled = true;
-            document.getElementById("intermediate-stylesheet").disabled = true;
-            document.getElementById("expert-stylesheet").disabled = true;
-
-            // Enable the stylesheet corresponding to the selected difficulty
-            document.getElementById(`${difficulty}-stylesheet`).disabled = false;
-
-            document.getElementById("difficultyText").textContent = difficulty;
-        }
-
-        function showPicture() {
-            // Update the mouseIsClicked variable
-            mouseIsClicked = true;
-            document.getElementById("restartButton").innerHTML = '<img src="pictures/open_mouth.png" alt="Sad Face">';
-        }
-
-        // Hide the picture when the mouse is released
-        function hidePicture() {
-            // Update the mouseIsClicked variable
-            mouseIsClicked = false;
-            document.getElementById("restartButton").innerHTML = '<img src="pictures/smiley_face.png" alt="Smiley Face">';
-        }
-
-        // Wrap the event listener around the function calls
-        document.addEventListener('DOMContentLoaded', function () {
-            document.addEventListener('mousedown', showPicture);
-            document.addEventListener('mouseup', hidePicture);
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.1.1"></script>
+    <script> 
+            function changeDifficulty(difficulty) {
+                // Disable all difficulty stylesheets
+                document.getElementById("beginner-stylesheet").disabled = true;
+                document.getElementById("intermediate-stylesheet").disabled = true;
+                document.getElementById("expert-stylesheet").disabled = true;
+    
+                // Enable the stylesheet corresponding to the selected difficulty
+                document.getElementById(`${difficulty}-stylesheet`).disabled = false;
+    
+                document.getElementById("difficultyText").textContent = difficulty;
+            }
+            
+        </script>
 </head>
 
 <body>
@@ -54,13 +33,14 @@
             <button class="dropbtn">Select Difficulty</button>
             <!-- Define the dropdown content -->
             <div class="dropdown-content">
-                <!-- Define the dropdown links (buttons) -->
                 <button id="beginner" class="difficulty-button" onclick="changeDifficulty('beginner')">beginner</button>
                 <button id="intermediate" class="difficulty-button" onclick="changeDifficulty('intermediate')">intermediate</button>
                 <button id="expert" class="difficulty-button" onclick="changeDifficulty('expert')">expert</button>
             </div>
         </div>
+        <!--contains the grid, reset button, timer, and mines left-->
         <div id="gameContainer">
+            <!--contains the reset button, timer, and mines left-->
             <div id="controlsContainer">
                 <div id="mineCountContainer">
                     <div id="count3"></div>
